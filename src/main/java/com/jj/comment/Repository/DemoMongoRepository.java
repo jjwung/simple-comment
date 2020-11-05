@@ -1,4 +1,4 @@
-package com.jj.comment.dao;
+package com.jj.comment.Repository;
 
 import com.jj.comment.dto.DemoDto;
 import org.springframework.data.mongodb.repository.MongoRepository;
