@@ -11,7 +11,7 @@ public class DemoService {
     private DemoMongoRepository demoMongoRepository;
 
     public String demo() {
-        DemoDto demoDto = new DemoDto("1","王大锤","万万没想到，最后我还是和小美在一起了");
+        DemoDto demoDto = new DemoDto(null,"张三","法外狂徒");
         demoMongoRepository.save(demoDto);
         return "存储成功";
     }

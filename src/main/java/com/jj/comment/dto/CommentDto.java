@@ -20,8 +20,8 @@ public class CommentDto {
     // 来自用户id
     private String fromUserId;
 
-    // 回复给用户id,如果为空，则为主评论
-    private String toUserId;
+    // 回复给哪个评论
+    private String toCommentId;
 
     // 评论内容
     private String content;
@@ -38,6 +38,6 @@ public class CommentDto {
     // 获踩数
     private Integer dislikeNumber;
 
-    // 父评论ID，用于支评论关联父评论
+    // 父评论ID，用于统计
     private String fatherCommentId;
 }
