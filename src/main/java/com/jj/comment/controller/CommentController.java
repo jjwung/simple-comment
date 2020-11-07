@@ -13,12 +13,29 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping("/list/{belongId}")
-    public List<CommentDto> demo(@PathVariable("belongId") String belongId) {
-        List<CommentDto> commentList = commentService.getList(belongId);
+    /**
+     * 查询评论列表
+     * 1.查询一级评论：fatherCommentId为空
+     * 2.查询二级评论：fatherCommentId不为空
+     *
+     * @param belongId
+     * @return
+     */
+    @GetMapping("/list/{belongId}/{fatherCommentId}")
+    public List<CommentDto> demo(
+            @PathVariable("belongId") String belongId,
+            @PathVariable("fatherCommentId") String fatherCommentId
+    ) {
+        List<CommentDto> commentList = commentService.getList(belongId, fatherCommentId);
         return commentList;
     }
 
+    /**
+     * 发表服务
+     *
+     * @param commentDto 评论接收实体
+     * @return 存储后的实体（含生成ID）
+     */
     @PostMapping("/save")
     public String demo(@RequestBody CommentDto commentDto) {
         String commentRes = commentService.save(commentDto);
