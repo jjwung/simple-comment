@@ -2,6 +2,7 @@ package com.jj.comment.service;
 
 import com.jj.comment.Repository.CommentRepository;
 import com.jj.comment.dto.CommentDto;
+import com.jj.comment.util.CheckUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -34,9 +35,9 @@ public class CommentService {
      */
     public String save(CommentDto commentDto) {
         // 将""换为null，以免spring-data查询的时候筛选有问题
+        CheckUtils.emptyToNull(commentDto);
         CommentDto save = commentRepository.save(commentDto);
         return "存储的数据：" + save;
     }
-
 
 }

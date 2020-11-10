@@ -18,8 +18,8 @@ public class CommentController {
      * 1.查询一级评论：fatherCommentId为空
      * 2.查询二级评论：fatherCommentId不为空
      *
-     * @param belongId
-     * @return
+     * @param belongId 归属id
+     * @return 评论列表实体
      */
     @GetMapping("/list/{belongId}/{fatherCommentId}")
     public List<CommentDto> demo(
