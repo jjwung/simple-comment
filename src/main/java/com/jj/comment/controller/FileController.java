@@ -25,7 +25,7 @@ public class FileController {
 
     @PostMapping("/download")
     public File download(@RequestParam String objectId) {
-       File content = fileService.download(objectId);
-       return content;
+        File content = fileService.download(objectId);
+        return content;
     }
 }

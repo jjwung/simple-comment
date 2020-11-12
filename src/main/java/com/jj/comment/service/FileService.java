@@ -45,7 +45,7 @@ public class FileService {
         GridFSFile gridFSFile = gridFsTemplate.findOne(Query.query(Criteria.where("_id").is(objectId)));
         GridFSDownloadStream gridFSDownloadStream = gridFSBucket.openDownloadStream(gridFSFile.getObjectId());
         GridFsResource gridFsResource = new GridFsResource(gridFSFile, gridFSDownloadStream);
-        File file = new File("src/main/resources/file/"+objectId);
+        File file = new File("src/main/resources/file/" + objectId);
         try {
             InputStream inputStream = gridFsResource.getInputStream();
             FileUtils.copyInputStreamToFile(inputStream, file);
