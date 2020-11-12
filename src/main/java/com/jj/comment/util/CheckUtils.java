@@ -1,7 +1,6 @@
 package com.jj.comment.util;
 
 import com.jj.comment.dto.CommentDto;
-import org.apache.commons.lang3.StringUtils;
 
 /**
  * 参数校验工具类
@@ -14,12 +13,9 @@ public class CheckUtils {
      * @param commentDto 评论实体类
      */
     public static void emptyToNull(CommentDto commentDto) {
-        if(StringUtils.isBlank(commentDto.getBelongId())){
+        if (commentDto.getBelongId() != null && commentDto.getBelongId().equals("")) {
             commentDto.setBelongId(null);
         }
-        /*if (commentDto.getBelongId() != null && commentDto.getBelongId().equals("")) {
-            commentDto.setBelongId(null);
-        }*/
         if (commentDto.getContent() != null && commentDto.getContent().equals("")) {
             commentDto.setContent(null);
         }
