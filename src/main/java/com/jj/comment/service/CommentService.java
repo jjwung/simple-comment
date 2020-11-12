@@ -1,6 +1,6 @@
 package com.jj.comment.service;
 
-import com.jj.comment.Repository.CommentRepository;
+import com.jj.comment.repository.CommentRepository;
 import com.jj.comment.dto.CommentDto;
 import com.jj.comment.util.CheckUtils;
 import org.springframework.beans.factory.annotation.Autowired;

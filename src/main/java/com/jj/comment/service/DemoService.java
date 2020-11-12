@@ -1,6 +1,6 @@
 package com.jj.comment.service;
 
-import com.jj.comment.Repository.DemoMongoRepository;
+import com.jj.comment.repository.DemoMongoRepository;
 import com.jj.comment.dto.DemoDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
