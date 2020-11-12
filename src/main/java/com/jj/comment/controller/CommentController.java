@@ -22,7 +22,7 @@ public class CommentController {
      * @return 评论列表实体
      */
     @GetMapping("/list/{belongId}/{fatherCommentId}")
-    public List<CommentDto> demo(
+    public List<CommentDto> list(
             @PathVariable("belongId") String belongId,
             @PathVariable("fatherCommentId") String fatherCommentId
     ) {
@@ -37,7 +37,7 @@ public class CommentController {
      * @return 存储后的实体（含生成ID）
      */
     @PostMapping("/save")
-    public String demo(@RequestBody CommentDto commentDto) {
+    public String save(@RequestBody CommentDto commentDto) {
         String commentRes = commentService.save(commentDto);
         return commentRes;
     }
