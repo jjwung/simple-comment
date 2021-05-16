@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.jj.comment.dao.UserDao">
+    <select id="findUsername" parameterType="String" resultType="java.lang.String">
+		select username from user where username = #{username}
+	</select>
+
+	<select id="findEmail" parameterType="String" resultType="java.lang.String">
+		select email from user where email = #{email}
+	</select>
+
+	<select id="findUserByEmail" parameterType="String" resultType="com.jj.comment.entity.User">
+		select * from user where email = #{email}
+	</select>
+
+	<select id="findUserByName" parameterType="String" resultType="com.jj.comment.entity.User">
+		select * from user where username = #{username}
+	</select>
+
+    <!-- 添加用户 -->
+    <insert id="addUser"  parameterType="com.jj.comment.entity.User">
+	   INSERT INTO user (username,password,email,phone,verifyCode) VALUES (#{user.username},#{user.password},#{user.email},#{user.phone},#{user.verifyCode});
+	</insert>
+
+    <!-- 更新用户 -->
+    <update id="updatetUser" parameterType="com.jj.comment.entity.User" >
+		update user set username=#{user.username}, password=#{user.password}, email=#{user.email}, phone=#{user.phone}, verifyCode=#{user.verifyCode} where id=#{user.id};
+	</update>
+
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="integer">
+		delete from user where id= #{id};
+	</delete>
+
+</mapper>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace：命名空间，用于隔离sql，还有一个很重要的作用，后面会讲 -->
+<mapper namespace="test">
+    <!-- id:statement的id 或者叫做sql的id-->
+    <!-- parameterType:声明输入参数的类型 -->
+    <!-- resultType:声明输出结果的类型，应该填写pojo的全路径 -->
+    <!-- #{}：输入参数的占位符，相当于jdbc的？ -->
+
+    <!-- 通过id查询一个用户 -->
+    <select id="findUserById" parameterType="integer" resultType="com.jj.comment.entity.User">
+		select * from user where id=#{id};
+	</select>
+
+    <!-- 通过username 模糊查询用户列表
+        #{}: 占位符
+        ${}：字符串拼接
+     -->
+    <select id="findUserByUsername" parameterType="String" resultType="com.jj.comment.entity.User">
+		select * from user where username like '%${value}%';
+	</select>
+
+
+    <!-- 添加用户 -->
+    <insert id="insertUser"  parameterType="com.jj.comment.entity.User">
+	   INSERT INTO user (username,birthday,sex,address) VALUES (#{username},#{birthday},#{sex},#{address});
+
+	</insert>
+
+    <!-- 更新用户 -->
+    <update id="updatetUser" parameterType="com.jj.comment.entity.User" >
+		update user set username=#{username} where id=#{id};
+	</update>
+
+    <!-- 删除用户 -->
+    <delete id="deleteUser" parameterType="int">
+		delete from user where id= #{id};
+	</delete>
+
+</mapper>

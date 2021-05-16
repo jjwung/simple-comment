@@ -1,7 +1,7 @@
 package com.jj.comment.controller;
 
+import com.jj.comment.entity.User;
 import com.jj.comment.service.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
